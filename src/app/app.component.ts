@@ -11,6 +11,7 @@ export class AppComponent {
     title = 'app';
     person = {
         firstname: 'Juri',
+        lastname: 'Kalashnikov',
         age: 32,
         gender: 'M'
     };
@@ -21,6 +22,21 @@ export class AppComponent {
             type: 'input',
             templateOptions: {
                 label: 'Firstname'
+            },
+            validators: {
+                validation: Validators.required
+            },
+            validation: {
+                messages: {
+                    required: 'You need to provide a value'
+                }
+            }
+        },
+        {
+            key: 'lastname',
+            type: 'input',
+            templateOptions: {
+                label: 'Lastname'
             },
             validators: {
                 validation: Validators.required

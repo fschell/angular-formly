@@ -15,10 +15,10 @@
 
     <mat-card-content>
       <h1>Dynamic reactive forms in Angular</h1>
-      <app-dynamic-form [data]="person" [formDataObj]="personFields"></app-dynamic-form>
+      <app-form [data]="person" [formDataObj]="personFields"></app-form>
     </mat-card-content>
     <mat-card-actions align="start">
-      <button mat-button (click)="onAction">Action1</button>
+      <button mat-button (click)="onAction()">Action1</button>
     </mat-card-actions>
     <mat-card-footer>
       Footer

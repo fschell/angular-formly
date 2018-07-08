@@ -1,0 +1,6 @@
+<form [formGroup]="form" (ngSubmit)="submittedData = data">
+  <formly-form [model]="data" [fields]="formDataObj">
+    <button type="submit">Save</button>
+  </formly-form>
+</form>
+<pre>{{ submittedData | json }}</pre>

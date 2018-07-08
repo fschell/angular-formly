@@ -7,18 +7,19 @@ import {MaterialModule} from './@material/material.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FormlyModule} from '@ngx-formly/core';
 import {FormlyMaterialModule} from '@ngx-formly/material';
-import {DynamicFormComponent} from './dynamic-form.component';
+import { FormComponent } from './form/form.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        DynamicFormComponent
+        FormComponent
     ],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
         MaterialModule,
         FormlyModule,
+        FormsModule,
         ReactiveFormsModule,
         FormlyModule.forRoot(),
         FormlyMaterialModule
