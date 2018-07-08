@@ -7,12 +7,14 @@ import {MaterialModule} from './@material/material.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FormlyModule} from '@ngx-formly/core';
 import {FormlyMaterialModule} from '@ngx-formly/material';
-import { FormComponent } from './form/form.component';
+import {FormComponent} from './form/form.component';
+import {RepeatTypeComponent} from './form/repeat-section.type';
 
 @NgModule({
     declarations: [
         AppComponent,
-        FormComponent
+        FormComponent,
+        RepeatTypeComponent
     ],
     imports: [
         BrowserModule,
@@ -21,8 +23,12 @@ import { FormComponent } from './form/form.component';
         FormlyModule,
         FormsModule,
         ReactiveFormsModule,
-        FormlyModule.forRoot(),
-        FormlyMaterialModule
+        FormlyModule.forRoot({
+                types: [
+                    {name: 'repeat', component: RepeatTypeComponent},
+                ],
+            }),
+            FormlyMaterialModule
 
 
     ],

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {FormlyFieldConfig} from '@ngx-formly/core';
+import {FormlyFieldConfig, FormlyFormOptions} from '@ngx-formly/core';
 import {Validators} from '@angular/forms';
 
 @Component({
@@ -9,14 +9,14 @@ import {Validators} from '@angular/forms';
 })
 export class AppComponent {
     title = 'app';
-    person = {
+    model = {
         firstname: 'Juri',
         lastname: 'Kalashnikov',
         age: 32,
         gender: 'M'
     };
-
-    personFields = <FormlyFieldConfig>[
+    options: FormlyFormOptions = {};
+    fields = <FormlyFieldConfig>[
         {
             key: 'firstname',
             type: 'input',
@@ -70,10 +70,55 @@ export class AppComponent {
                 label: 'Gender',
                 options: [{value: 'Male', key: 'M'}, {value: 'Female', key: 'F'}]
             }
-        }
+        },
+        {
+            key: 'investments',
+            type: 'repeat',
+            fieldArray: {
+                fieldGroupClassName: 'row',
+                templateOptions: {
+                    btnText: 'Add another investment',
+                },
+                fieldGroup: [
+                    {
+                        className: 'col-sm-4',
+                        type: 'input',
+                        key: 'investmentName',
+                        templateOptions: {
+                            label: 'Name of Investment:',
+                            required: true,
+                        },
+                    },
+                    {
+                        type: 'input',
+                        key: 'investmentDate',
+                        className: 'col-sm-3',
+                        templateOptions: {
+                            type: 'date',
+                            label: 'Date of Investment:',
+                        },
+                    },
+                    {
+                        type: 'input',
+                        key: 'stockIdentifier',
+                        className: 'col-sm-3',
+                        templateOptions: {
+                            label: 'Stock Identifier:',
+                            addonRight: {
+                                class: 'fa fa-code',
+                                onClick: (to, fieldType, $event) => console.log(to, fieldType, $event),
+                            },
+                        },
+                    },
+                ],
+            },
+        },
     ];
 
-    onAction() {
 
-    }
+
+onAction($event) {
+    console.log($event);
+
+}
 }
